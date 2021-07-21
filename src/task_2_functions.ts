@@ -1,6 +1,7 @@
 /* eslint-disable no-redeclare */
 import { getAllBooks, getBookTitlesByCategory, logBookTitles, logFirstAvailable } from './task_1_basic-types';
 import { Book } from './task_3_interfaces';
+import { BookOrUndefined } from './task_4_classes';
 
 const myID = createCustomerID('Ann', 10);
 let idGenerator: (name: string, id: number) => string = (name: string, id: number) => `${id}-${name}`;
@@ -26,7 +27,7 @@ function createCustomer(name: string, age?: number, city?: string): void {
     console.log(`Created Customer: ${customerInfo}`);
 }
 
-function getBookByID(id: number): Book {
+function getBookByID(id: number): BookOrUndefined {
     const bookByID = getAllBooks().find(book => book.id === id);
 
     return bookByID;
