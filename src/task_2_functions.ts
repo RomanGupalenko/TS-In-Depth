@@ -1,5 +1,6 @@
 /* eslint-disable no-redeclare */
-import { Book, getAllBooks, getBookTitlesByCategory, logBookTitles, logFirstAvailable } from './task_1_basic-types';
+import { getAllBooks, getBookTitlesByCategory, logBookTitles, logFirstAvailable } from './task_1_basic-types';
+import { Book } from './task_3_interfaces';
 
 const myID = createCustomerID('Ann', 10);
 let idGenerator: (name: string, id: number) => string = (name: string, id: number) => `${id}-${name}`;
@@ -80,16 +81,16 @@ function bookTitleTransform(bookName: any): string | void {
     }
 }
 
-console.log(`MyID: ${myID}`);
-console.log(`Generated ID: ${idGenerator('Ann', 10)}`);
-createCustomer('Ann');
-createCustomer('Ann', 10);
-createCustomer('Ann', 10, 'USA');
+// console.log(`MyID: ${myID}`);
+// console.log(`Generated ID: ${idGenerator('Ann', 10)}`);
+// createCustomer('Ann');
+// createCustomer('Ann', 10);
+// createCustomer('Ann', 10, 'USA');
 
-logBookTitles(getBookTitlesByCategory());
-logFirstAvailable();
-console.log(getBookByID(1));
-console.log(myBooks);
-console.log(checkedOutBooks);
-bookTitleTransform('Ann');
-bookTitleTransform(10);
+// logBookTitles(getBookTitlesByCategory());
+// logFirstAvailable();
+// console.log(getBookByID(1));
+// console.log(myBooks);
+// console.log(checkedOutBooks);
+// bookTitleTransform('Ann');
+// bookTitleTransform(10);

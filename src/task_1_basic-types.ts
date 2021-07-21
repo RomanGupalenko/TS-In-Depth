@@ -1,10 +1,12 @@
-export type Book = {
-    id: number;
-    title: string;
-    author: string;
-    category: Category;
-    available: boolean;
-};
+import { Book } from './task_3_interfaces';
+
+// export type Book = {
+//     id: number;
+//     title: string;
+//     author: string;
+//     category: Category;
+//     available: boolean;
+// };
 
 type Library = {
     lib: string;
@@ -12,7 +14,7 @@ type Library = {
     avgPagesPerBook: number;
 };
 
-enum Category {
+export enum Category {
     JavaScript = 'JavaScript',
     CSS = 'CSS',
     HTML = 'HTML',
@@ -20,8 +22,8 @@ enum Category {
     Angular = 'Angular',
 }
 
-export function getAllBooks(): ReadonlyArray<Book> {
-    let booksList: ReadonlyArray<Book> = <const>[
+export function getAllBooks(): readonly Book[] {
+    let booksList: readonly Book[] = <const>[
         {
             id: 1,
             title: 'Refactoring JavaScript',
@@ -76,7 +78,7 @@ function getBookAuthorByIndex(index: number): [title: string, author: string] {
 }
 
 function calcTotalPages(): bigint {
-    let librariesList: ReadonlyArray<Library> = <const>[
+    let librariesList: readonly Library[] = <const>[
         { lib: 'libName1', books: 1_000_000_000, avgPagesPerBook: 250 },
         { lib: 'libName2', books: 5_000_000_000, avgPagesPerBook: 300 },
         { lib: 'libName3', books: 3_000_000_000, avgPagesPerBook: 280 },
@@ -89,6 +91,6 @@ function calcTotalPages(): bigint {
     return totalPages;
 }
 
-logFirstAvailable(getAllBooks());
-logBookTitles(getBookTitlesByCategory(Category.JavaScript));
-console.log(getBookAuthorByIndex(1));
+// logFirstAvailable(getAllBooks());
+// logBookTitles(getBookTitlesByCategory(Category.JavaScript));
+// console.log(getBookAuthorByIndex(1));
