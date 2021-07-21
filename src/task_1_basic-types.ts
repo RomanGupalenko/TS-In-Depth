@@ -1,4 +1,4 @@
-type Book = {
+export type Book = {
     id: number;
     title: string;
     author: string;
@@ -20,7 +20,7 @@ enum Category {
     Angular = 'Angular',
 }
 
-function getAllBooks(): ReadonlyArray<Book> {
+export function getAllBooks(): ReadonlyArray<Book> {
     let booksList: ReadonlyArray<Book> = <const>[
         {
             id: 1,
@@ -49,14 +49,14 @@ function getAllBooks(): ReadonlyArray<Book> {
     return booksList;
 }
 
-function logFirstAvailable(booksList: readonly Book[]): void {
+export function logFirstAvailable(booksList: readonly Book[] = getAllBooks()): void {
     const lenght: number = booksList.length;
     const { title }: Book = booksList.find(book => book.available);
 
     console.log(`Lenght: ${lenght}, Book Title: ${title}`);
 }
 
-function getBookTitlesByCategory(categoryName: Category): Array<string> {
+export function getBookTitlesByCategory(categoryName: Category = Category.JavaScript): Array<string> {
     const bookTitlesList: Array<string> = getAllBooks()
         .filter(book => book.category === categoryName)
         .map(book => book.title);
@@ -64,7 +64,7 @@ function getBookTitlesByCategory(categoryName: Category): Array<string> {
     return bookTitlesList;
 }
 
-function logBookTitles(bookTitlesList: string[]): void {
+export function logBookTitles(bookTitlesList: string[]): void {
     console.log(`Book Titles List: ${bookTitlesList.join(', ')}`);
 }
 
